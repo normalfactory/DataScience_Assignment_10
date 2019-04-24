@@ -8,13 +8,79 @@
     <!-- Bootstrap CSS: Use lux theme -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css" integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
 </head>
 <body>
     
-    
+    <div class="container mt-5">
+
+        <!-- Header -->
+        <div class='header text-center'>
+            <h1 class= 'display-4'>Mission to Mars</h1>
+            <a class='btn btn-primary' href="/scrape">Scrape New Data</a>
+        </div>
 
 
+        <!-- News -->
+        <div class="news mt-5">
+            <h3>Latest Mars News</h3>
+            <h5>{{ dict.news_title }}</h5>
+            <p>
+                {{ dict.news_p}}
+            </p>
+        </div>
 
+
+        <!-- Weather & Featured Image -->
+        <div class="Weather">
+
+            <div class= "row">
+
+                <!-- Featured Image-->
+                <div class="col-12 col-md-7 mt-5">
+                    <h3>Featured Image</h3>
+                    <div class='text-center'>
+                        <img class='featureimage' src= "{{ dict.featured_image_url }}" alt="Featured Mars Image" />
+                    </div>
+                </div>
+
+                <!-- Weather -->
+                <div class="col-12 col-md-5 mt-5">
+                    <h3>Current Weather</h3>
+                    <p>
+                        {{ dict.mars_weather}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Facts -->
+        <div class='facts mt-5'>
+            <h3>
+            Mars Facts
+            </h3>
+            {{ dict.marsFactsHtml | safe }}
+        </div>
+
+
+        <!-- Hemispheres -->
+        <div class='hemispheresn mt-5'>
+            <h3>Mars Hemispheres</h3>
+
+            <div class= "row">
+
+                {% for item in dict.hemisphere_image_urls %}
+                    <div class="col-12 col-md-6 mt-3 text-center">
+                        <img class='featureimage' src='{{ item.img_url }}' alt='{{ item.title }}' />
+                        <h5 class='mt-2'>{{ item.title }}</h5>
+                    </div>
+                    
+                {% endfor %}
+
+            </div>
+        </div>
+        
+    </div>
 
     <!-- Bootstrap JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

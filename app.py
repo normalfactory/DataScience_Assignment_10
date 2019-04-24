@@ -57,6 +57,9 @@ def homeRoute():
     marsDocs = getScrapeInfo()
 
 
+    #-- Update Table for Bootstrap
+    marsDocs['marsFactsHtml'] = marsDocs['marsFactsHtml'].replace('class="dataframe"', 'class="table table-sm table-striped"')
+
 
     return render_template('index.html', dict=marsDocs)
 

@@ -1,0 +1,35 @@
+/*
+CSS for Mission to Mars
+*/
+
+
+/* media query based on size; change images sizes */
+@media (min-width:1201px) {
+    .featureimage {
+        width: 900;
+    }
+}
+
+@media (max-width: 1200px) {
+    .featureimage {
+        width: 900;
+    }
+}
+
+@media (max-width: 992px) {
+    .featureimage {
+        width: 700;
+    }
+}
+
+@media (max-width: 768px) {
+    .featureimage {
+        width: 600;
+    }
+}
+
+@media (max-width: 576px) {
+    .featureimage {
+        width:600;
+    }
+}
